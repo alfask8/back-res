@@ -1,0 +1,57 @@
+
+version: '3.8'
+# Definición de los servicios
+services:
+
+# Servicio de base de datos PostgreSQL
+  db:
+  # Utiliza la imagen oficial de PostgreSQL versión 15
+    image: postgres:latest
+    container_name: reservas_db
+
+    # Política de reinicio automático
+    restart: unless-stopped
+
+    # Variables de entorno para configurar la base de datos
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: reservasdb1234
+      POSTGRES_DB: reservas_db
+    ports:
+      - "5432:5432"
+
+      # Montaje de volumen para persistencia de datos
+    volumes:
+      - dbvolume_reservas:/var/lib/postgresql
+      # Configuración de healthcheck para asegurar que la base de datos esté lista antes de que otros servicios dependientes se inicien
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U admin -d reservas_db"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+
+# Servicio de backend ASP.NET Core
+  backend:
+    build: .
+    container_name: bck_res
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      ASPNETCORE_ENVIRONMENT: "Development"
+      # IMPORTANTE: dentro de Docker, la DB se llama "db" (nombre del servicio), no "localhost"
+      ConnectionStrings__DefaultConnection: "Host=db;Database=db_reservas;Username=admin;Password=reservasdb1234"
+    ports:
+      - "5000:8080"
+
+  frontend:
+    build: ../../frontend
+    container_name: reservas_frontend
+    depends_on:
+      - backend
+    ports:
+      - "4200:80"
+
+volumes:
+  dbvolume_reservas:
