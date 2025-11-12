@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Reservas.Api.Data;
-using Reservas.Api.Models;
+using Reservas.API.Data;
+using Reservas.API.Models;
 
 namespace Reservas.Api.Controllers
 {

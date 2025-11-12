@@ -1,29 +1,23 @@
-using Microsoft.EntityFrameworkCore;
-using Reservas.Api.Models;
+﻿using Microsoft.EntityFrameworkCore;
+using Reservas.API.Models;
 
-namespace Reservas.Api.Data
+namespace Reservas.API.Data
 {
     public class ReservasContext : DbContext
     {
-        public ReservasContext(DbContextOptions<ReservasContext> options) : base(options) { }
-
-        public DbSet<Usuario> Usuarios { get; set; }
-        public DbSet<Reserva> Reservas { get; set; }
-
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
+      
+        public ReservasContext(DbContextOptions<ReservasContext> options)
+            : base(options)
         {
-            // Usuarios
-            modelBuilder.Entity<Usuario>()
-                .HasKey(u => u.Dni);
-
-            modelBuilder.Entity<Usuario>()
-                .HasMany(u => u.Reservas)
-                .WithOne(r => r.Usuario)
-                .HasForeignKey(r => r.UsuarioId);
-
-            // Reservas
-            modelBuilder.Entity<Reserva>()
-                .HasKey(r => r.Id);
         }
+
+        // DbSets (una tabla por entidad)
+        public DbSet<Usuario> Usuarios { get; set; }
+        public DbSet<Rol> Roles { get; set; }
+        public DbSet<Espacio> Espacios { get; set; }
+        public DbSet<Reserva> Reservas { get; set; }
+        public DbSet<EstadoReserva> EstadosReserva { get; set; }
+        public DbSet<HistorialReserva> HistorialReservas { get; set; }
+        public DbSet<Notificacion> Notificaciones { get; set; }
     }
 }

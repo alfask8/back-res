@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace Reservas.Api.Models
+namespace Reservas.API.Models
 {
     public class Usuario
     {

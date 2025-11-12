@@ -1,5 +1,5 @@
 using Microsoft.EntityFrameworkCore;
-using Reservas.Api.Data;
+using Reservas.API.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 

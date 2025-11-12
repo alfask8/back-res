@@ -1,11 +1,12 @@
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Reservas.Api.Models
+namespace Reservas.API.Models
 {
     public class Reserva
     {
         [Key]
-        public string Id { get; set; } = Guid.NewGuid().ToString();
+        public int IdReserva { get; set; }  // Cambiamos a int, FK más coherente para SQL
 
         [Required]
         public DateTime FechaInicio { get; set; }
@@ -19,11 +20,14 @@ namespace Reservas.Api.Models
         public string? Observaciones { get; set; }
 
         [Required]
-        public string UsuarioId { get; set; }
+        [ForeignKey("Usuario")]
+        public string DniUsuario { get; set; } = string.Empty; // Relación FK  Usuario.Dni
 
         [Required]
-        public string EspacioId { get; set; }
+        [ForeignKey("Espacio")]
+        public int IdEspacio { get; set; } // Relación FK  Espacio.IdEspacio
 
-        public Usuario? Usuario { get; set; }
+        public Usuario Usuario { get; set; } = null!;
+        public Espacio Espacio { get; set; } = null!;
     }
 }

@@ -41,7 +41,7 @@ services:
     environment:
       ASPNETCORE_ENVIRONMENT: "Development"
       # IMPORTANTE: dentro de Docker, la DB se llama "db" (nombre del servicio), no "localhost"
-      ConnectionStrings__DefaultConnection: "Host=db;Database=db_reservas;Username=admin;Password=reservasdb1234"
+      ConnectionStrings__DefaultConnection: "Host=db;Database=reservas_db;Username=admin;Password=reservasdb1234"
     ports:
       - "5000:8080"
 

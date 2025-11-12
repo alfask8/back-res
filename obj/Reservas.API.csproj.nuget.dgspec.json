@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\adrian.cendancatoira\\Desktop\\workspace\\SistemaReservas\\backend\\Reservas.API\\Reservas.API.csproj": {}
+    "C:\\Users\\adrii\\Desktop\\workspace\\SistemaReservas\\backend\\Reservas.API\\Reservas.API.csproj": {}
   },
   "projects": {
-    "C:\\Users\\adrian.cendancatoira\\Desktop\\workspace\\SistemaReservas\\backend\\Reservas.API\\Reservas.API.csproj": {
+    "C:\\Users\\adrii\\Desktop\\workspace\\SistemaReservas\\backend\\Reservas.API\\Reservas.API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\adrian.cendancatoira\\Desktop\\workspace\\SistemaReservas\\backend\\Reservas.API\\Reservas.API.csproj",
+        "projectUniqueName": "C:\\Users\\adrii\\Desktop\\workspace\\SistemaReservas\\backend\\Reservas.API\\Reservas.API.csproj",
         "projectName": "Reservas.API",
-        "projectPath": "C:\\Users\\adrian.cendancatoira\\Desktop\\workspace\\SistemaReservas\\backend\\Reservas.API\\Reservas.API.csproj",
-        "packagesPath": "C:\\Users\\adrian.cendancatoira\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\adrian.cendancatoira\\Desktop\\workspace\\SistemaReservas\\backend\\Reservas.API\\obj\\",
+        "projectPath": "C:\\Users\\adrii\\Desktop\\workspace\\SistemaReservas\\backend\\Reservas.API\\Reservas.API.csproj",
+        "packagesPath": "C:\\Users\\adrii\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\adrii\\Desktop\\workspace\\SistemaReservas\\backend\\Reservas.API\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\adrian.cendancatoira\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\adrii\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],

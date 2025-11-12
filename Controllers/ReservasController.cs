@@ -1,9 +1,9 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Reservas.Api.Data;
-using Reservas.Api.Models;
+using Reservas.API.Data;
+using Reservas.API.Models;
 
-namespace Reservas.Api.Controllers
+namespace Reservas.API.Controllers
 {
 	[ApiController]
 	[Route("api/[controller]")]
@@ -17,7 +17,7 @@ namespace Reservas.Api.Controllers
 			=> await _context.Reservas.ToListAsync();
 
 		[HttpGet("{id}")]
-		public async Task<ActionResult<Reserva>> GetReserva(string id)
+		public async Task<ActionResult<Reserva>> GetReserva(int id)
 		{
 			var reserva = await _context.Reservas.FindAsync(id);
 			if (reserva == null) return NotFound();
@@ -29,13 +29,13 @@ namespace Reservas.Api.Controllers
 		{
 			_context.Reservas.Add(reserva);
 			await _context.SaveChangesAsync();
-			return CreatedAtAction(nameof(GetReserva), new { id = reserva.Id }, reserva);
+			return CreatedAtAction(nameof(GetReserva), new { id = reserva.IdReserva }, reserva);
 		}
 
 		[HttpPut("{id}")]
-		public async Task<IActionResult> PutReserva(string id, Reserva reserva)
+		public async Task<IActionResult> PutReserva(int id, Reserva reserva)
 		{
-			if (id != reserva.Id) return BadRequest();
+			if (id != reserva.IdReserva) return BadRequest();
 
 			_context.Entry(reserva).State = EntityState.Modified;
 			await _context.SaveChangesAsync();
@@ -43,7 +43,7 @@ namespace Reservas.Api.Controllers
 		}
 
 		[HttpDelete("{id}")]
-		public async Task<IActionResult> DeleteReserva(string id)
+		public async Task<IActionResult> DeleteReserva(int id)
 		{
 			var reserva = await _context.Reservas.FindAsync(id);
 			if (reserva == null) return NotFound();
